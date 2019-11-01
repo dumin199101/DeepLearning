@@ -17,6 +17,7 @@ def dictvec():
     dictvect = DictVectorizer(sparse=False)
     data = dictvect.fit_transform([{"city":"北京","temperature":100},{"city":"上海","temperature":60},{"city":"深圳","temperature":40}])
     print(dictvect.get_feature_names())
+    print(dictvect.inverse_transform(data))
     print(data)
     return None
 
