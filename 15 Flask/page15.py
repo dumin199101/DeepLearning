@@ -6,6 +6,31 @@
 
 # sqlalchemy:将模型类转换为sql
 
+"""
+1.查询多条数据：Role.query.all(),db.session.query(Role).all()
+2.查询单条数据：Role.query.first()，Role.query.get(2)
+3.查询数量：db.session.query(Role).count()
+4.过滤：
+    User.query.filter_by(name="wang").first()
+    User.query.filter_by(name="wang",email="wang@163.com").first()
+    User.query.filter(User.name=='wang',User.email=='wang@163.com').first()
+    或：
+      from sqlalchemy import or_
+      User.query.filter(or_(User.name=='wang',User.email.endswith("163.com"))).all()
+5.分页：
+      User.query.offset(2).all()
+      User.query.offset(2).limit(1).all()
+6.排序：User.query.order_by(User.id.desc()).all()
+7.分组：
+        from sqlalchemy import func
+        db.session.query(User.role_id,func.count(User.role_id)).group_by(User.role_id).all()
+8.关联：
+     Role.query.get(1).users
+     User.query.get(2).role
+
+
+"""
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
@@ -33,6 +58,10 @@ class Role(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(128),unique=True)
     users = db.relationship("User",backref="role")
+
+    def __repr__(self):
+        """显示对象时更直观"""
+        return self.name
 
 class User(db.Model):
     __tablename__ = "tb_user"
