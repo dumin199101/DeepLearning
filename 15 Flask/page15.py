@@ -60,3 +60,19 @@ if __name__ == '__main__':
     db.drop_all()
     # 创建所有表
     db.create_all()
+
+    # 添加数据
+    role1 = Role(name='admin')
+    db.session.add(role1)
+    db.session.commit()
+
+    role2 = Role(name='editor')
+    db.session.add(role2)
+    db.session.commit()
+
+    user1 = User(name='wang',email='wang@163.com',password='123456',role_id=role1.id)
+    user2 = User(name='zhao',email='zhao@qq.com',password='gasdfg',role_id=role2.id)
+    user3 = User(name='li',email='li@126.com',password='4gese3',role_id=role2.id)
+    user4 = User(name='sun',email='sun@163.com',password='jyfdg4',role_id=role1.id)
+    db.session.add_all([user1,user2,user3,user4])
+    db.session.commit()
