@@ -28,6 +28,18 @@
      Role.query.get(1).users
      User.query.get(2).role
 
+9.修改：
+    User.query.filter_by(name="li").update({"name":"song"})
+    db.session.commit()
+
+10.删除:
+    user = User.query.get(3)
+    db.session.delete(user)
+    db.session.commit()
+
+
+
+
 
 """
 
