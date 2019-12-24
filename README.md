@@ -45,3 +45,12 @@ deactivate
 
 rmvirtualenv 虚拟环境名称
 
+conda环境安装：
+
+创建环境：conda create --name python3 python=3
+
+切换环境：source activate python3
+
+jupyter notebook:一款代替ipython的笔记软件
+
+启动：jupyter notebook
