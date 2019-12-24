@@ -14,7 +14,9 @@ my_font = font_manager.FontProperties(fname='C:\\Windows\\Fonts\\simhei.ttf')
 plt.figure(figsize=(10, 6), dpi=80)
 x = range(2, 26, 2)
 y = [15, 13, 16, 11, 15, 22, 21, 14, 15, 12, 18, 13]
+# 绘制折线图
 plt.plot(x, y)
+# 调整x轴刻度
 plt.xticks(x)
 # 设置标题
 plt.xlabel('时间', fontproperties=my_font)
