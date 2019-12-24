@@ -44,3 +44,4 @@ deactivate
 7.删除虚拟环境：
 
 rmvirtualenv 虚拟环境名称
+
