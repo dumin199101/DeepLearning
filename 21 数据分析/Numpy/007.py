@@ -32,3 +32,18 @@ print(t7)
 # 标准正态
 t8 = np.random.randn(3, 4)
 print(t8)
+
+# 值为0
+t9 = np.zeros((3,2),dtype="int32")
+print(t9)
+
+# 值为1
+t10 = np.ones((3,4),dtype="bool_")
+print(t10)
+
+# 深拷贝:不会相互影响
+t11 = np.arange(10).reshape(2,5)
+t12 = np.copy(t11)
+t11[1,1] = 100
+print(t11)
+print(t12)
